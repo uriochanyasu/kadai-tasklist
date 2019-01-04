@@ -7,8 +7,8 @@
         <% if @task.errors.any? %>
           <div class="alert alert-warning">
           <ul>
-            <% @task.errors.full_messages.each do |task| %>
-          <li><%= task %></li>
+            <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
           <% end %>
           </ul>
         </div>
