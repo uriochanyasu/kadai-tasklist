@@ -1,8 +1,21 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
-  before_action :set_task, only: [:destroy]
+  before_action :set_task, only: [:destroy , :edit , :update,]
   
+ 
+  def edit
+  end
+  
+  def update
+    if @task.update(task_params)
+      flash[:success] = 'Message は正常に更新されました'
+      redirect_to root_url
+    else
+      flash.now[:danger] = 'Message は更新されませんでした'
+      render :edit
+    end
+  end
  
   
   def create
